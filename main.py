@@ -1,10 +1,14 @@
+# Projeto: Global Solution: Queimadas
+# Disciplina: Dynamic Programming
+# Integrantes: Higor Batista - RM 558907 || Fabricio Bettarello - RM 554638 || Kauê Pires - RM 554403
+
 import heapq
 import random
 import time
 from collections import deque
 from colorama import Fore, init
 
-# Configura o colorama pra deixar o terminal mais colorido
+# Configura o colorama
 init(autoreset=True)
 
 # Nó pra guardar os registros do histórico
@@ -16,7 +20,7 @@ class NoHistorico:
 # Gerencia o histórico com lista encadeada
 class ListaDeHistorico:
     def __init__(self):
-        self.primeiro = None  # Começo da lista
+        self.primeiro = None
 
     # Adiciona registro no fim
     def adicionar(self, info):
@@ -68,7 +72,7 @@ class ListaDeHistorico:
 # Classe pra áreas com ocorrências e subáreas
 class Area:
     def __init__(self, nome):
-        self.nome = nome  # Nome da área (ex.: Norte)
+        self.nome = nome  # Nome da área
         self.ocorrencias = []  # Lista de ocorrências
         self.sub_areas = []  # Subáreas da área
 
@@ -182,7 +186,7 @@ def gerar_relatorio(area):
         total += 1
     print(Fore.YELLOW + f"Total em {area.nome}: {total}")
 
-# Mostra o menu de opções
+# Mostra o menu
 def exibir_menu():
     print(Fore.CYAN + """
 --- Sistema de Ocorrências ---
@@ -274,7 +278,7 @@ def desfazer_acao(acoes, historico, areas):
         print(Fore.RED + "Sem ações para desfazer.")
 
 # Simula ocorrências aleatórias
-def simular_dados(fila, areas, historico=None, acoes=None, qtd=5):
+def simular_dados(fila, areas, historico=None, acoes=None, qtd=10):
     descricoes = [
         "Fumaça avistada", "Incêndio rural", "Fogo perto da rodovia",
         "Sinal térmico", "Foco em reserva", "Alerta de moradores",
